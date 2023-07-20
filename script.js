@@ -1,41 +1,53 @@
-choices = ["ROCK","PAPER","SCISSORS"];
-winner = {
+const choices = ["ROCK","PAPER","SCISSORS"];
+const winner = {
     "ROCK":"SCISSORS",
     "SCISSORS":"PAPER",
     "PAPER":"ROCK"
 }
 
 function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 3);
+    const choice = Math.floor(Math.random() * 3);
     return choices[choice];
 }
 
-function getResult(player,computer) {
+function playRound(pS, cS) {
+    pS = pS.toUpperCase();
     let result = 0;
-    if (winner[player] == computer) {
+    if (winner[pS] == cS) {
         result = 1;
-    } else if (winner[computer] == player) {
+    } else if (winner[cS] == pS) {
         result = -1;
     } else {
         result = 0;
     }
-    return result;    
+    return result;  
 }
 
-const computerSelection = getComputerChoice();
+function game() {
+    let playTimes = 0;
+    let score = 0;
+    while(playTimes < 5) {
+        const playerSelection = prompt("Input a choice between rock,paper and scissors");
+        const computerSelection = getComputerChoice();
 
-const playerSelection = "rock";
-
-function playRound(pS, cS) {
-    let choice = pS.toUpperCase();
-    let result = getResult(choice,cS);
-    if (result == 1) {
-        return "You Win! " + choice + " beats " + cS;
-    } else if (result == -1)  {
-        return "You Lose! " + cS + " beats " + choice;
+        let result = playRound(playerSelection,computerSelection);
+        if (result == 1) {
+            console.log("You Win! " + playerSelection + " beats " + computerSelection);
+        } else if (result == -1)  {
+            console.log("You Lose! " + computerSelection + " beats " + playerSelection);
+        } else {
+            console.log("It's A Tie! Both players chose " + computerSelection);
+        }
+        score += result;
+        playTimes++;
+    }
+    if (score >= 1) {
+        console.log("Congratulations! You beat the computer!");
+    } else if (score == 0) {
+        console.log("Well, you tied the computer. Play again?");
     } else {
-        return "It's A Tie! Both players chose " + cS;
+        console.log("You lost! The computer beat you.");
     }
 }
 
-console.log(playRound(playerSelection,computerSelection));
+game();
