@@ -16,12 +16,25 @@
         <p id="score-update"></p>
     </div>
 
+    <div class="winner"></div>
+
     <script>
         const buttons = document.querySelectorAll('button');
-        const scoreUpdateP = document.querySelector('p#score-update');
+        const paragScoreUpdate = document.querySelector('p#score-update');
         const spanPlayerScore = document.querySelector('span.player-score');
         const spanCompScore = document.querySelector('span.comp-score');
+        const winnerDiv = document.querySelector('div.winner');
+        
         var scorePlayer = 0, scoreComp = 0;
+
+        function doWinner() {
+            if (scoreComp == 5) {
+                winnerDiv.innerHTML = "Sorry, you lose!";
+            } else {
+                winnerDiv.innerHTML = "Congratulations! You Win!";
+            }
+            winnerDiv.innerHTML += " Refresh the page to play again.";
+        }
 
         buttons.forEach((button) => {            
             button.addEventListener('click',(e) => {
@@ -30,18 +43,22 @@
                 
                 let txt = "";
                 if (result == 1) {
-                    txt = "You Win! " + button.value + " beats " + computerChoice;
+                    txt = "Player gets a point: " + button.value + " beats " + computerChoice;
                     scorePlayer++;
                 } else if (result == -1)  {
-                    txt = "You Lose! " + computerChoice + " beats " + button.value;
+                    txt = "Computer gets a point: " + computerChoice + " beats " + button.value;
                     scoreComp++;
                 } else {
-                    txt = "It's A Tie! Both players chose " + computerChoice;
+                    txt = "No one gets a point: Both players chose " + computerChoice;
                 }
 
-                scoreUpdateP.innerHTML = txt; 
+                paragScoreUpdate.innerHTML = txt; 
                 spanCompScore.innerHTML = scoreComp;
                 spanPlayerScore.innerHTML = scorePlayer;
+
+                if (scorePlayer == 5 || scoreComp == 5) {
+                    doWinner();
+                }
             });
         });
         
