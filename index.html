@@ -15,20 +15,20 @@
             <button value="PAPER">PAPER ✋</button>
             <button value="SCISSORS">SCISSORS ✌️</button>
         </div>
-        <div id="score">
-            <div id="score-total">Player Score: <span id="player-score">0</span> Computer Score: <span id="comp-score">0</span></div>
-            <div id="score-update"></div>
+        <div class="score">
+            <div class="score-total">Player Score: <span class="score-player">0</span> Computer Score: <span class="score-computer">0</span></div>
+            <div class="score-update"></div>
         </div>
 
-        <div id="winner"></div>
+        <div class="winner"></div>
 
     </div>
     <script>
         const buttons = document.querySelectorAll('button');
-        const divScoreUpdate = document.querySelector('div#score-update');
-        const spanPlayerScore = document.querySelector('span#player-score');
-        const spanCompScore = document.querySelector('span#comp-score');
-        const divWinner = document.querySelector('div#winner');
+        const divScoreUpdate = document.querySelector('div.score-update');
+        const spanPlayerScore = document.querySelector('span.score-player');
+        const spanCompScore = document.querySelector('span.score-computer');
+        const divWinner = document.querySelector('div.winner');
         
         var scorePlayer = 0, scoreComp = 0;
 
