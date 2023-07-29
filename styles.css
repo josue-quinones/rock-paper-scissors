@@ -1,0 +1,19 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+div.main {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 25px;
+}
+
+div .buttons {
+    display: flex;
+    gap: 100px;
+    
+}

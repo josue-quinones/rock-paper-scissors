@@ -4,36 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./script.js"></script>
+    <link rel="stylesheet" href="./styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <button value="ROCK">ROCK</button>
-    <button value="PAPER">PAPER</button>
-    <button value="SCISSORS">SCISSORS</button>
+    <div class="main">
+        <div class="buttons">
+            <button value="ROCK">ROCK</button>
+            <button value="PAPER">PAPER</button>
+            <button value="SCISSORS">SCISSORS</button>
+        </div>
+        <div id="score">
+            <div id="score-total">Player Score: <span id="player-score">0</span> Computer Score: <span id="comp-score">0</span></div>
+            <div id="score-update"></div>
+        </div>
 
-    <div class="score">
-        <p id="score-total">Player Score: <span class="player-score">0</span> Computer Score: <span class="comp-score">0</span></p>
-        <p id="score-update"></p>
+        <div id="winner"></div>
+
     </div>
-
-    <div class="winner"></div>
-
     <script>
         const buttons = document.querySelectorAll('button');
-        const paragScoreUpdate = document.querySelector('p#score-update');
-        const spanPlayerScore = document.querySelector('span.player-score');
-        const spanCompScore = document.querySelector('span.comp-score');
-        const winnerDiv = document.querySelector('div.winner');
+        const divScoreUpdate = document.querySelector('p#score-update');
+        const spanPlayerScore = document.querySelector('span#player-score');
+        const spanCompScore = document.querySelector('span#comp-score');
+        const divWinner = document.querySelector('div#winner');
         
         var scorePlayer = 0, scoreComp = 0;
 
         function doWinner() {
             if (scoreComp == 5) {
-                winnerDiv.innerHTML = "Sorry, you lose!";
+                divWinner.innerHTML = "Sorry, you lose!";
             } else {
-                winnerDiv.innerHTML = "Congratulations! You Win!";
+                divWinner.innerHTML = "Congratulations! You Win!";
             }
-            winnerDiv.innerHTML += " Refresh the page to play again.";
+            divWinner.innerHTML += " Refresh the page to play again.";
         }
 
         buttons.forEach((button) => {            
@@ -52,7 +56,7 @@
                     txt = "No one gets a point: Both players chose " + computerChoice;
                 }
 
-                paragScoreUpdate.innerHTML = txt; 
+                divScoreUpdate.innerHTML = txt; 
                 spanCompScore.innerHTML = scoreComp;
                 spanPlayerScore.innerHTML = scorePlayer;
 
