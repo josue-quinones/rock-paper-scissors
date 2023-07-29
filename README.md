@@ -14,7 +14,7 @@ Goals:
 - [x] Give instructions on how to play again
 
 
-===========
+---
 Console & Prompt Version
 
 Goals:
