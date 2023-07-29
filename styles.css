@@ -31,3 +31,15 @@ button {
     background-color: white;
     padding: 8px;
 }
+
+div.score, div.winner {
+    font-size: 18px;
+    font-weight: 700;
+    width: 80%;
+}
+
+div.score {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
