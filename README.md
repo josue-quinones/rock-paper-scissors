@@ -6,6 +6,17 @@ Written in:
 * JavaScript
 * CSS
 
+Updated Version = UI Version
+
+Goals:
+- [x] Have buttons for player to select choice
+- [x] Update score each turn
+- [x] Give instructions on how to play again
+
+
+===========
+Console & Prompt Version
+
 Goals:
 - [x] Have the game be in playable through the console.
 - [x] Have the game be playable five times. (Best of 5)
