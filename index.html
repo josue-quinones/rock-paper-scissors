@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="main">
+        <div class="header">Beat the computer by getting to five points first!</div>
         <div class="buttons">
-            <button value="ROCK">ROCK</button>
-            <button value="PAPER">PAPER</button>
-            <button value="SCISSORS">SCISSORS</button>
+            <button value="ROCK">ROCK ✊</button>
+            <button value="PAPER">PAPER ✋</button>
+            <button value="SCISSORS">SCISSORS ✌️</button>
         </div>
         <div id="score">
             <div id="score-total">Player Score: <span id="player-score">0</span> Computer Score: <span id="comp-score">0</span></div>
@@ -24,7 +25,7 @@
     </div>
     <script>
         const buttons = document.querySelectorAll('button');
-        const divScoreUpdate = document.querySelector('p#score-update');
+        const divScoreUpdate = document.querySelector('div#score-update');
         const spanPlayerScore = document.querySelector('span#player-score');
         const spanCompScore = document.querySelector('span#comp-score');
         const divWinner = document.querySelector('div#winner');
