@@ -4,6 +4,7 @@ Popular game
 Written in:
 * HTML
 * JavaScript
+* CSS
 
 Goals:
 - [x] Have the game be in playable through the console.
