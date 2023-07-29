@@ -11,7 +11,6 @@ function getComputerChoice() {
 }
 
 function playRound(pS, cS) {
-    pS = pS.toUpperCase();
     let result = 0;
     if (winner[pS] == cS) {
         result = 1;
@@ -50,4 +49,4 @@ function game() {
     }
 }
 
-game();
+// game();

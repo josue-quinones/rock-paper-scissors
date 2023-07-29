@@ -7,7 +7,44 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <p>Check out the console. For now ;)</p>
-    <p>(Hint: hit F12 to see it in action!)</p>
+    <button value="ROCK">ROCK</button>
+    <button value="PAPER">PAPER</button>
+    <button value="SCISSORS">SCISSORS</button>
+
+    <div class="score">
+        <p id="score-total">Player Score: <span class="player-score">0</span> Computer Score: <span class="comp-score">0</span></p>
+        <p id="score-update"></p>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+        const scoreUpdateP = document.querySelector('p#score-update');
+        const spanPlayerScore = document.querySelector('span.player-score');
+        const spanCompScore = document.querySelector('span.comp-score');
+        var scorePlayer = 0, scoreComp = 0;
+
+        buttons.forEach((button) => {            
+            button.addEventListener('click',(e) => {
+                const computerChoice = getComputerChoice();
+                const result = playRound(button.value,computerChoice);
+                
+                let txt = "";
+                if (result == 1) {
+                    txt = "You Win! " + button.value + " beats " + computerChoice;
+                    scorePlayer++;
+                } else if (result == -1)  {
+                    txt = "You Lose! " + computerChoice + " beats " + button.value;
+                    scoreComp++;
+                } else {
+                    txt = "It's A Tie! Both players chose " + computerChoice;
+                }
+
+                scoreUpdateP.innerHTML = txt; 
+                spanCompScore.innerHTML = scoreComp;
+                spanPlayerScore.innerHTML = scorePlayer;
+            });
+        });
+        
+    </script>
 </body>
 </html>
